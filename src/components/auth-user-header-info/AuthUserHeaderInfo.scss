@@ -1,0 +1,31 @@
+.auth-user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+
+    .username {
+        color: #ffb700;
+        font-weight: 600;
+    }
+
+    .user-email {
+        color: wheat;
+        font-style: italic;
+        font-size: 14px;
+    }
+
+    .user-photo-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: lightyellow;
+        width: 9vh;
+        height: 9vh;
+        border-radius: 50%;
+
+        img {
+            width: 90%;
+        }
+    }
+}

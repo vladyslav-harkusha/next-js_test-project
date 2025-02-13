@@ -1,0 +1,40 @@
+.nav-menu {
+    .nav-list {
+        display: flex;
+        gap: 50px;
+
+        li {
+            color: wheat;
+            font-weight: bold;
+            font-size: 18px;
+
+            .nav-link {
+                text-decoration: none;
+                color: wheat;
+                padding: 10px 16px;
+                border-radius: 20px;
+                box-sizing: border-box;
+                transition: 0.3s;
+                border-right: 3px solid transparent;
+                border-left: 3px solid transparent;
+
+                &:hover {
+                    border-color: #ffd267;
+                    color: #ffd267;
+                }
+
+                &.is-active-link {
+                    border-color: #ffb700;
+                    background: rgba(48, 89, 89, 0.55);
+                    color: #ffb700;
+                    transition: 0.3s;
+
+                    &:hover {
+                        color: #ffd267;
+                        border-color: #ffd267;
+                    }
+                }
+            }
+        }
+    }
+}

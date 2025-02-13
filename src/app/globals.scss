@@ -1,14 +1,39 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Inter, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
 }
 
 ul, li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 body {
-  background-color: #c3d2d2;
+    background-color: grey;
+}
+
+.app-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100vh;
+    background-color: #e1eef3;
+}
+
+.not-found-container {
+    text-align: center;
+    margin-top: 40vh;
+    color: firebrick;
+
+    .link-to-homepage {
+        display: block;
+        font-size: 18px;
+        margin-top: 16px;
+        color: #024b00;
+        transition: 0.4s;
+
+        &:hover {
+            color: #009d00;
+        }
+    }
 }

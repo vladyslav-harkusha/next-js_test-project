@@ -1,0 +1,17 @@
+.main-button {
+    padding: 10px 30px;
+    background-color: teal;
+    color: lightyellow;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid wheat;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        border-color: #ffb700;
+        background-color: teal;
+        color: #ffb700;
+    }
+}
