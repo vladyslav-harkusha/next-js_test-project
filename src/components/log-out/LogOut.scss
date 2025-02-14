@@ -1,0 +1,31 @@
+.log-out {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 80%;
+
+    .title-greeting {
+        font-style: italic;
+        color: #490096;
+        font-size: 24px;
+        background-color: rgba(0, 128, 128, 0.7);
+        padding: 16px;
+        border-radius: 16px;
+
+        span {
+            color: #ffb700;
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+            padding: 10px;
+            color: grey;
+        }
+    }
+}

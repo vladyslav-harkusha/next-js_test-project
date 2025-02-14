@@ -2,8 +2,6 @@ import './page.scss';
 import Loader from "@/components/UI/loader/Loader";
 
 export default function IndexPage() {
-    // const { authUser } = useAppSelector(state => state.authStoreSlice);
-
     return (
         <div className='home-page'>
             <h2 className='home-page-title'>Home page</h2>
