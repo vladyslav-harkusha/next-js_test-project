@@ -1,6 +1,5 @@
 import './AuthPage.scss';
 import {AuthForm} from "@/components/auth-form/AuthForm";
-import {getCookie} from "cookies-next";
 
 export default async function AuthPage() {
     return (

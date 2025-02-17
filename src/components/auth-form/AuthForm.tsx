@@ -2,45 +2,33 @@
 
 import './AuthForm.scss';
 import {useForm} from "react-hook-form";
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, useActionState, useEffect, useState, useTransition} from "react";
 import {authFormValidator} from "@/validators/authForm.validator";
 import {authUsersData} from "@/components/auth-form/constants/authUsersData";
 import {joiResolver} from "@hookform/resolvers/joi";
 import MainButton from "@/components/UI/main-button/MainButton";
-import Loader from "@/components/UI/loader/Loader";
 import {IAuthFormData} from "@/models/IAuthFormData";
-import {ILoginData} from "@/models/ILoginData";
-import {getAuthUserData} from "@/services/api.service";
-import {getCookie} from "cookies-next";
+import {authFormAction} from "@/server-actions/authFormAction";
+import Loader from "@/components/UI/loader/Loader";
 
 export const AuthForm = () => {
-    const [isAuthUserLoading, setIsAuthUserLoading] = useState<boolean>(false);
     const [isAuthError, setIsAuthError] = useState<boolean>(false);
-    const authUser = getCookie('authUser')
-    console.log(authUser);
+    const [formState, formAction] = useActionState(authFormAction, {data: null, error: null});
+    const [isPending, startTransition] = useTransition();
+    console.log(formState);
 
     const {
-        handleSubmit, register, reset, formState: { errors, isValid }, setValue
+        register, formState: { errors, isValid }, setValue
     } = useForm<IAuthFormData>({
         mode: "all",
         resolver: joiResolver(authFormValidator),
     });
 
-    const handleSubmitCallback = async (formData: ILoginData) => {
-        if (!isValid) return;
-
-        try {
-            setIsAuthUserLoading(true);
-            await getAuthUserData(formData);
-        } catch (e) {
+    useEffect(() => {
+        if (formState?.error) {
             setIsAuthError(true);
-            console.log(e)
-        } finally {
-            setIsAuthUserLoading(false);
         }
-
-        reset();
-    };
+    }, [formState]);
 
     const handleOnChangeInputs = () => {
         setIsAuthError(false);
@@ -57,13 +45,20 @@ export const AuthForm = () => {
         setIsAuthError(false);
     };
 
-    if (isAuthUserLoading) {
-        return <Loader />
+    if (isPending) {
+        return <Loader />;
     }
 
     return (
         <>
-            <form onSubmit={handleSubmit(handleSubmitCallback)} className='auth-form'>
+            <form
+                action={(formData) => {
+                    startTransition(() => {
+                        formAction(formData);
+                    });
+                }}
+                className='auth-form'
+            >
                 <h4 className='title'>You can enter username and password manually or choose user in selection menu</h4>
 
                 <div className='form-wrapper'>

@@ -3,7 +3,6 @@ import {urlEndpoints} from "@/constants/urlEndpoints";
 import {ILoginData} from "@/models/ILoginData";
 import {IAuthResponseWithTokens} from "@/models/IAuthResponseWithTokens";
 import {IRefreshTokensPair} from "@/models/IRefreshTokensPair";
-import {setCookie, getCookie} from "cookies-next";
 
 const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -18,37 +17,37 @@ axiosInstance.interceptors.request.use(requestObj => {
     return requestObj;
 });
 
-axiosInstance.interceptors.response.use(responseObj => {
-    return responseObj;
-}, async (error) => {
-    if (error.response.status === 401 && getCookie('dummyRefreshToken')) {
-        await refreshAuth();
-    }
-
-    return error;
-});
+// axiosInstance.interceptors.response.use(responseObj => {
+//     return responseObj;
+// }, async (error) => {
+//     if (error.response.status === 401 && getCookie('dummyRefreshToken')) {
+//         await refreshAuth();
+//     }
+//
+//     return error;
+// });
 
 export const getAuthUserData = async (loginData: ILoginData): Promise<IAuthResponseWithTokens> => {
     const { data: userWithTokens } = await axiosInstance.post<IAuthResponseWithTokens>(urlEndpoints.login, loginData);
 
-    setCookie('authUser', JSON.stringify(userWithTokens), { maxAge: 3600 });
-    setCookie('dummyAccessToken', userWithTokens.accessToken, { maxAge: 3600 });
-    setCookie('dummyRefreshToken', userWithTokens.refreshToken, { maxAge: 3600 });
+    // setCookie('authUser', JSON.stringify(userWithTokens), { maxAge: 3600 });
+    // setCookie('dummyAccessToken', userWithTokens.accessToken, { maxAge: 3600 });
+    // setCookie('dummyRefreshToken', userWithTokens.refreshToken, { maxAge: 3600 });
 
     return userWithTokens;
 };
 
-export const refreshAuth = async (): Promise<IRefreshTokensPair> => {
-    const { data: newTokens } = await axiosInstance.post<IRefreshTokensPair>(urlEndpoints.refresh, {
-        refreshToken: getCookie('dummyRefreshToken'),
-        expiresInMins: 30
-    });
+// export const refreshAuth = async (): Promise<IRefreshTokensPair> => {
+    // const { data: newTokens } = await axiosInstance.post<IRefreshTokensPair>(urlEndpoints.refresh, {
+    //     refreshToken: getCookie('dummyRefreshToken'),
+    //     expiresInMins: 30
+    // });
 
-    setCookie('dummyAccessToken', newTokens.accessToken);
-    setCookie('dummyRefreshToken', newTokens.refreshToken);
-
-    return newTokens;
-};
+    // setCookie('dummyAccessToken', newTokens.accessToken);
+    // setCookie('dummyRefreshToken', newTokens.refreshToken);
+    //
+    // return newTokens;
+// };
 
 export type urlParamsType = {
     endpoint: string;

@@ -14,4 +14,15 @@
         background-color: teal;
         color: #ffb700;
     }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: auto;
+
+        &:hover {
+            border-color: wheat;
+            background-color: teal;
+            color: lightyellow;
+        }
+    }
 }
