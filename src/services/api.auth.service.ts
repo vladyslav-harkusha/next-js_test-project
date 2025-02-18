@@ -5,7 +5,6 @@ import {IAuthResponseWithTokens} from "@/models/IAuthResponseWithTokens";
 import {getCookie} from "cookies-next";
 import {cookies} from "next/headers";
 import {IRefreshTokensPair} from "@/models/IRefreshTokensPair";
-import {setNewAuthCookies} from "@/server-actions/refreshTokens";
 
 export const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -39,7 +38,7 @@ export const getNewTokens = async (): Promise<IRefreshTokensPair> => {
 
     const { data: newTokens } = await axiosInstance.post<IRefreshTokensPair>(urlEndpoints.refresh, {
         refreshToken,
-        expiresInMins: 1
+        expiresInMins: 30
     });
 
     return newTokens;
