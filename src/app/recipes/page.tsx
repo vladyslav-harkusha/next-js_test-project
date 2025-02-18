@@ -1,6 +1,14 @@
 import './RecipesPage.scss';
+import {hasCookie} from "cookies-next";
+import {cookies} from "next/headers";
+import {redirect} from "next/navigation";
 
-export default function RecipesPage() {
+export default async function RecipesPage() {
+    const isAuthorized = await hasCookie('auth-user', { cookies });
+    if (!isAuthorized) {
+        redirect('/auth')
+    }
+
     // const totalRecipesCount = 50;
 
     return (
