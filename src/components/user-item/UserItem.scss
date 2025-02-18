@@ -1,0 +1,22 @@
+.user-item {
+    background-color: teal;
+    color: #ffb700;
+    margin: 3px;
+    padding: 4px 20px;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: #ffb700;
+        color: teal;
+    }
+
+    .user-name {
+        display: inline-block;
+    }
+    span {
+        color: lightblue;
+    }
+}

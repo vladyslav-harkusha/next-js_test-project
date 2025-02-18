@@ -9,7 +9,7 @@ export const authFormAction = async (prevState: any, formData: FormData) => {
         const authData = {
             username: formData.get('username'),
             password: formData.get('password'),
-            expiresInMins: 30,
+            expiresInMins: 60,
         };
 
         const authUser = await getAuthUserData(authData);

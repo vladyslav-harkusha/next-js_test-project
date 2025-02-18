@@ -1,0 +1,32 @@
+.search-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+
+    .search-label {
+        color: #5C5EDC;
+        font-weight: bold;
+
+        span {
+            font-weight: normal;
+            font-style: italic;
+            color: teal;
+            font-size: 14px;
+        }
+    }
+
+    .app-search {
+        padding: 6px 10px;
+        width: 400px;
+        outline: none;
+        border: 2px solid teal;
+        border-radius: 8px;
+        font-size: 18px;
+        color: #005252;
+
+        &:focus {
+            border-color: #ffb700;
+        }
+    }
+}
