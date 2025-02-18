@@ -10,12 +10,12 @@ import MainButton from "@/components/UI/main-button/MainButton";
 import {IAuthFormData} from "@/models/IAuthFormData";
 import {authFormAction} from "@/server-actions/authFormAction";
 import Loader from "@/components/UI/loader/Loader";
+import Form from "next/form";
 
 export const AuthForm = () => {
     const [isAuthError, setIsAuthError] = useState<boolean>(false);
     const [formState, formAction] = useActionState(authFormAction, {data: null, error: null});
     const [isPending, startTransition] = useTransition();
-    console.log(formState);
 
     const {
         register, formState: { errors, isValid }, setValue
@@ -29,10 +29,6 @@ export const AuthForm = () => {
             setIsAuthError(true);
         }
     }, [formState]);
-
-    const handleOnChangeInputs = () => {
-        setIsAuthError(false);
-    };
 
     const handleOnChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
         const chosenUser = authUsersData.find(user => user.nameOfUser === e.target.value);
@@ -51,7 +47,7 @@ export const AuthForm = () => {
 
     return (
         <>
-            <form
+            <Form
                 action={(formData) => {
                     startTransition(() => {
                         formAction(formData);
@@ -66,13 +62,13 @@ export const AuthForm = () => {
                         <label>
                             <p>username: </p>
                             {errors.username && <span className='input-error-message'>{errors.username.message}</span>}
-                            <input type="text" className='auth-form-input' {...register('username', {onChange: handleOnChangeInputs})} />
+                            <input type="text" className='auth-form-input' {...register('username', {onChange: () => setIsAuthError(false)})} />
                         </label>
 
                         <label>
                             <p>password: </p>
                             {errors.password && <span className='input-error-message'>{errors.password.message}</span>}
-                            <input type="text" className='auth-form-input' {...register('password', {onChange: handleOnChangeInputs})} />
+                            <input type="text" className='auth-form-input' {...register('password', {onChange: () => setIsAuthError(false)})} />
                         </label>
 
                         {isAuthError && <p className='auth-error-message'>Your username or password is incorrect</p>}
@@ -91,7 +87,7 @@ export const AuthForm = () => {
                 </div>
 
                 <MainButton buttonText='Log in' isDisabled={!isValid} />
-            </form>
+            </Form>
         </>
     );
 };

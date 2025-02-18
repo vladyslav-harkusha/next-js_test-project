@@ -1,19 +1,26 @@
-import {FC} from "react";
+'use client';
 
+import {FC} from "react";
 import './LogOut.scss';
 import {IAuthResponseWithTokens} from "@/models/IAuthResponseWithTokens";
 import MainButton from "@/components/UI/main-button/MainButton";
+import {useDeleteCookie} from "cookies-next";
+import {redirect} from "next/navigation";
+import {refreshHomePage} from "@/server-actions/refreshHomePage";
 
 type Props = {
     authUser: IAuthResponseWithTokens;
 }
 
 export const LogOut: FC<Props> = ({ authUser }) => {
+    const deleteCookie = useDeleteCookie();
 
-
-    const handleLogOut = () => {
-        // localStorage.setItem('dummyAccessToken', '');
-        // localStorage.setItem('dummyRefreshToken', '');
+    const handleLogOut = async () => {
+        deleteCookie('auth-user');
+        deleteCookie('dummyAccessToken');
+        deleteCookie('dummyRefreshToken');
+        await refreshHomePage();
+        redirect('/');
     };
 
     return (

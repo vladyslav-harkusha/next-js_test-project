@@ -1,7 +1,13 @@
 import './page.scss';
 import Loader from "@/components/UI/loader/Loader";
+import {cookies} from "next/headers";
+import {urlEndpoints} from "@/constants/urlEndpoints";
+import Link from "next/link";
 
-export default function IndexPage() {
+export default async function IndexPage() {
+    const cookieStore = await cookies();
+    const authUserCookie = cookieStore.get('auth-user')?.value;
+
     return (
         <div className='home-page'>
             <h2 className='home-page-title'>Home page</h2>
@@ -10,12 +16,12 @@ export default function IndexPage() {
             </p>
             <Loader />
 
-            {/*{!authUser &&*/}
-			{/*	<div className='need-to-login'>*/}
-			{/*		<p>You are not authorized, log in please:</p>*/}
-			{/*		<Link to={urlEndpoints.auth} className='link'>to Auth page</Link>*/}
-			{/*	</div>*/}
-            {/*}*/}
+            {!authUserCookie &&
+				<div className='need-to-login'>
+					<p>You are not authorized, log in please:</p>
+					<Link href={urlEndpoints.auth} className='link'>to Auth page</Link>
+				</div>
+            }
         </div>
     );
 };

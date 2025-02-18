@@ -5,12 +5,13 @@ import cn from 'classnames';
 import {privateLinks, publicLinks} from "@/components/nav-menu/linksEndpoints";
 import {usePathname} from "next/navigation";
 import './NavMenu.scss';
+import {useHasCookie} from "cookies-next";
 
 export default function NavMenu() {
     const pathname = usePathname();
-    const authUser = true;
+    const hasCookie = useHasCookie();
 
-    const links = authUser ? privateLinks : publicLinks;
+    const links = hasCookie('auth-user') ? privateLinks : publicLinks;
 
     const isLinkActive = (endpoint: string) =>
         endpoint === '/' ? pathname === '/' : pathname.startsWith(endpoint);

@@ -1,6 +1,8 @@
 'use server';
 
-import {getAuthUserData} from "@/services/api.service";
+import {setCookie} from "cookies-next";
+import {cookies} from "next/headers";
+import {getAuthUserData} from "@/services/api.auth.service";
 
 export const authFormAction = async (prevState: any, formData: FormData) => {
     try {
@@ -11,6 +13,9 @@ export const authFormAction = async (prevState: any, formData: FormData) => {
         };
 
         const authUser = await getAuthUserData(authData);
+        await setCookie('auth-user', JSON.stringify(authUser), {cookies});
+        await setCookie('dummyAccessToken', authUser.accessToken, {cookies});
+        await setCookie('dummyRefreshToken', authUser.refreshToken, {cookies});
 
         return { ...prevState, data: authUser, error: null };
     } catch (err) {
