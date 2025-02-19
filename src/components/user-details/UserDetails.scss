@@ -17,10 +17,6 @@
 
         .image-wrapper {
             background-color: lightyellow;
-
-            .user-image {
-                width: 300px;
-            }
         }
 
         .user-info {
@@ -45,5 +41,16 @@
                 }
             }
         }
+    }
+}
+
+.not-found-message {
+    color: firebrick;
+    margin-top: 30vh;
+
+    span {
+        background-color: firebrick;
+        color: white;
+        padding: 3px 5px;
     }
 }

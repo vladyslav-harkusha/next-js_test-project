@@ -1,0 +1,73 @@
+.recipe-details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .title {
+        color: #ffb700;
+        background-color: teal;
+        width: fit-content;
+        padding: 8px 20px;
+        border-radius: 16px;
+        font-weight: normal;
+        font-size: 24px;
+    }
+
+    .link-to-author {
+        font-size: 24px;
+        font-style: italic;
+        color: teal;
+        background-color: lightblue;
+        padding: 10px;
+        border-radius: 10px;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: #ffb700;
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        background-color: wheat;
+        padding: 20px;
+        border-radius: 20px;
+
+        .instructions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            text-align: center;
+            font-style: italic;
+
+            p {
+                font-weight: bold;
+            }
+
+            .ingredients-list {
+                color: #5C5EDC;
+            }
+
+            .instructions-list {
+                color: teal;
+            }
+        }
+    }
+}
+
+.not-found-message {
+    color: firebrick;
+    margin-top: 30vh;
+
+    span {
+        background-color: firebrick;
+        color: white;
+        padding: 3px 5px;
+    }
+}

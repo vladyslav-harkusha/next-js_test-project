@@ -1,23 +1,23 @@
 import './UserDetails.scss';
-import { getEntityById} from "@/services/api.get-data.service";
+import {getEntityById} from "@/services/api.get-data.service";
 import {urlEndpoints} from "@/constants/urlEndpoints";
 import {IUser} from "@/models/IUser";
-
 import RecipesOfCurrentUser from "@/components/recipes-of-current-user/RecipesOfCurrentUser";
+import Image from 'next/image';
 
 type Props = { userId: string }
 
 export default async function UserDetails({ userId }: Props) {
-    const currentUser: IUser = await getEntityById(urlEndpoints.authUsers, userId);
+    const currentUser = await getEntityById<IUser>(urlEndpoints.authUsers, userId);
 
-    if (!currentUser) return <h2>user with id = {userId} is not found</h2>;
+    if (!currentUser) return <h2 className='not-found-message'>User with id=<span>{userId}</span> is not found</h2>;
     const { id, firstName, lastName, gender, email, phone, birthDate, image } = currentUser;
 
     return (
         <div className='user-details'>
             <div className='info-wrapper'>
                 <div className='image-wrapper'>
-                    <img src={image} alt={firstName} className='user-image'/>
+                    <Image src={image} width={300} height={300} alt={firstName} loading={"lazy"} />
                 </div>
                 <div className='user-info'>
                     <h3 className='user-name'>user №{id}: {firstName} {lastName}</h3>

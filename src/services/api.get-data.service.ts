@@ -20,6 +20,10 @@ export const getEntitiesByUrlParams = async <T>(urlParams: urlParamsType) => {
 };
 
 export const getEntityById = async <T>(endpoint: string, id: string) => {
-    const response = await axiosInstance.get<T>(`${endpoint}/${id}`);
-    return response.data as T;
+    try {
+        const response = await axiosInstance.get<T>(`${endpoint}/${id}`);
+        return response.data as T;
+    } catch (error: any) {
+        console.log(`Get entity byId data error: ${error.status}, ${error.message}`);
+    }
 };

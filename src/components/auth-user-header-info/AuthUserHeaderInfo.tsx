@@ -3,6 +3,7 @@
 import './AuthUserHeaderInfo.scss';
 import {redirect} from "next/navigation";
 import {IAuthResponseWithTokens} from "@/models/IAuthResponseWithTokens";
+import Image from "next/image";
 
 type Props = { authUser: IAuthResponseWithTokens }
 
@@ -15,7 +16,7 @@ export default function AuthUserHeaderInfo({ authUser }: Props) {
                 <p className='user-email'>{authUser.email}</p>
             </div>
             <div className='user-photo-wrapper'>
-                <img src={authUser.image} alt="user-photo"/>
+                <Image src={authUser.image} width={85} height={85} alt="auth-user-photo"/>
             </div>
         </div>
     );
