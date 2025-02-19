@@ -7,14 +7,14 @@
 
     .title-greeting {
         font-style: italic;
-        color: #490096;
+        color: var(--dark-violet-color);
         font-size: 24px;
-        background-color: rgba(0, 128, 128, 0.7);
+        background-color: var(--teal-color);
         padding: 16px;
         border-radius: 16px;
 
         span {
-            color: #ffb700;
+            color: var(--orange-color);
         }
     }
 
@@ -25,7 +25,7 @@
 
         p {
             padding: 10px;
-            color: grey;
+            color: var(--gray-text-color);
         }
     }
 }

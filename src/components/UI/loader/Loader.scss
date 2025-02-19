@@ -10,8 +10,8 @@
         position: absolute;
         width: 12px;
         height: 12px;
-        background-color: #5C5EDC;
-        border: 1px solid #ffb700;
+        background-color: var(--violet-color);
+        border: 1px solid var(--orange-color);
         border-radius: 50%;
         top: 50%;
         left: 50%;
@@ -29,19 +29,19 @@
             left: 0;
             top: 0;
             animation: inner-elem_rotate-one 1.3s linear infinite;
-            border-bottom: 4px solid lightblue;
+            border-bottom: 4px solid var(--light-blue-text-color);
         }
         &--two {
             right: 0;
             top: 0;
             animation: inner-elem_rotate-two 1.3s linear infinite;
-            border-right: 4px solid #ffb700;
+            border-right: 4px solid var(--orange-color);
         }
         &--three {
             right: 0;
             bottom: 0;
             animation: inner-elem_rotate-three 1.3s linear infinite;
-            border-top: 4px solid #5C5EDC;
+            border-top: 4px solid var(--violet-color);
         }
     }
 }

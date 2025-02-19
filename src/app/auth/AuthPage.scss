@@ -4,7 +4,8 @@
     .auth-page-title {
         text-align: center;
         padding: 12px 0;
-        color: #5C5EDC;
+        color: var(--violet-color);
         font-size: 28px;
+        text-shadow: var(--orange-color) 2px 2px;
     }
 }

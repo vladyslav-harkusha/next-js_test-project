@@ -1,5 +1,5 @@
 .no-recipes-info {
-    color: #5C5EDC;
+    color: var(--violet-color);
     font-weight: bold;
     text-align: center;
     font-style: italic;
@@ -8,7 +8,7 @@
 
 .user-recipes {
     p {
-        color: #5C5EDC;
+        color: var(--violet-color);
         font-weight: bold;
         text-align: center;
         margin-bottom: 10px;

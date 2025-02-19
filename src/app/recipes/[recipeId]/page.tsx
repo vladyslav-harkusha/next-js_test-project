@@ -6,8 +6,15 @@ import {Params} from "next/dist/server/request/params";
 import {Suspense} from "react";
 import Loader from "@/components/UI/loader/Loader";
 import RecipeDetails from "@/components/recipe-details/RecipeDetails";
+import {Metadata} from "next";
 
 type Props = { params: Promise<Params> }
+
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+    const { recipeId } = await params;
+
+    return { title: `Next.js | Recipe №${recipeId}` }
+};
 
 export default async function RecipePage({ params }: Props) {
     const isAuthorized = await hasCookie('auth-user', { cookies });

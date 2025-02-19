@@ -4,8 +4,8 @@
     gap: 20px;
 
     .recipe-name {
-        background-color: teal;
-        color: #ffb700;
+        background-color: var(--teal-color);
+        color: var(--orange-color);
         margin: 3px;
         padding: 3px 20px;
         letter-spacing: 2px;
@@ -14,8 +14,8 @@
         transition: 0.3s;
 
         &:hover {
-            background-color: #ffb700;
-            color: teal;
+            background-color: var(--orange-color);
+            color: var(--teal-color);
         }
     }
 
@@ -24,20 +24,20 @@
         gap: 10px;
 
         .recipe-tag-item {
-            background-color: rgba(173, 216, 230, 0.58);
-            color: teal;
+            background-color: var(--hash-tags-backgrount);
+            color: var(--teal-color);
             padding: 3px 5px;
             border-radius: 10px;
             cursor: pointer;
             transition: 0.3s;
 
             &.tag--active {
-                background-color: #ffb700;
+                background-color: var(--orange-color);
             }
 
             &:hover {
-                color: #003636;
-                background-color: lightblue;
+                color: var(--dark-teal-color);
+                background-color: var(--light-blue-text-color);
             }
         }
     }

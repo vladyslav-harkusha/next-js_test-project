@@ -3,6 +3,7 @@
 import {useEffect, useState} from "react";
 import './ThemeSwitcher.scss';
 import MainButton from "@/components/UI/main-button/MainButton";
+import './ThemeSwitcher.scss';
 
 export default function ThemeSwitcher() {
     const [theme, setTheme] = useState<string>('light');
@@ -28,7 +29,7 @@ export default function ThemeSwitcher() {
     const buttonText = theme === 'light' ? '🌙 Set dark theme' : '☀️ Set light theme';
 
     return (
-        <div>
+        <div className='theme-switcher'>
             <MainButton buttonText={buttonText} buttonOnclick={toggleTheme} />
         </div>
     );

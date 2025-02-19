@@ -6,8 +6,15 @@ import UserDetails from "@/components/user-details/UserDetails";
 import {Params} from "next/dist/server/request/params";
 import {Suspense} from "react";
 import Loader from "@/components/UI/loader/Loader";
+import {Metadata} from "next";
 
 type Props = { params: Promise<Params> }
+
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+    const { userId } = await params;
+
+    return { title: `Next.js | User №${userId}` }
+};
 
 export default async function UserPage({ params }: Props) {
     const isAuthorized = await hasCookie('auth-user', { cookies });

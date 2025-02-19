@@ -1,14 +1,5 @@
-button {
+.theme-switcher {
+    padding: 3px;
     background-color: var(--violet-color);
-    color: var(--app-wrapper);
-    border: 2px solid var(--light-blue-text-color);
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.4s;
-}
-
-button:hover {
-    opacity: 0.8;
+    border-radius: 12px;
 }

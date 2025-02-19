@@ -5,12 +5,12 @@
     cursor: pointer;
 
     .username {
-        color: #ffb700;
+        color: var(--orange-color);
         font-weight: 600;
     }
 
     .user-email {
-        color: wheat;
+        color: var(--wheat-color);
         font-style: italic;
         font-size: 14px;
     }
@@ -19,7 +19,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: lightyellow;
+        background-color: var(--app-wrapper);
         width: 9vh;
         height: 9vh;
         border-radius: 50%;

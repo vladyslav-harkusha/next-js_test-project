@@ -1,18 +1,18 @@
 .main-button {
     padding: 10px 30px;
-    background-color: teal;
-    color: lightyellow;
+    background-color: var(--teal-color);
+    color: var(--light-yellow-buttons);
     font-weight: bold;
     text-transform: uppercase;
-    border: 2px solid wheat;
+    border: 2px solid var(--wheat-color);
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
 
     &:hover {
-        border-color: #ffb700;
-        background-color: teal;
-        color: #ffb700;
+        border-color: var(--orange-color);
+        background-color: var(--teal-color);
+        color: var(--orange-color);
     }
 
     &:disabled {
@@ -20,9 +20,9 @@
         cursor: auto;
 
         &:hover {
-            border-color: wheat;
-            background-color: teal;
-            color: lightyellow;
+            border-color: var(--wheat-color);
+            background-color: var(--teal-color);
+            color: var(--light-yellow-buttons);
         }
     }
 }

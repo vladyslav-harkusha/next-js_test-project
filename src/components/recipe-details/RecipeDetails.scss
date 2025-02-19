@@ -6,8 +6,8 @@
     justify-content: space-around;
 
     .title {
-        color: #ffb700;
-        background-color: teal;
+        color: var(--orange-color);
+        background-color: var(--teal-color);
         width: fit-content;
         padding: 8px 20px;
         border-radius: 16px;
@@ -18,14 +18,14 @@
     .link-to-author {
         font-size: 24px;
         font-style: italic;
-        color: teal;
-        background-color: lightblue;
+        color: var(--teal-color);
+        background-color: var(--light-blue-text-color);
         padding: 10px;
         border-radius: 10px;
         transition: 0.3s;
 
         &:hover {
-            background-color: #ffb700;
+            background-color: var(--orange-color);
         }
     }
 
@@ -34,7 +34,7 @@
         justify-content: center;
         align-items: center;
         gap: 50px;
-        background-color: wheat;
+        background-color: var(--wheat-color);
         padding: 20px;
         border-radius: 20px;
 
@@ -51,22 +51,22 @@
             }
 
             .ingredients-list {
-                color: #5C5EDC;
+                color: var(--violet-color);
             }
 
             .instructions-list {
-                color: teal;
+                color: var(--teal-color);
             }
         }
     }
 }
 
 .not-found-message {
-    color: firebrick;
+    color: var(--error-text-color);
     margin-top: 30vh;
 
     span {
-        background-color: firebrick;
+        background-color: var(--error-text-color);
         color: white;
         padding: 3px 5px;
     }

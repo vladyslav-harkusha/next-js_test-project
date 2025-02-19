@@ -11,12 +11,12 @@
         align-items: center;
         justify-content: center;
         gap: 100px;
-        background: wheat;
+        background: var(--wheat-color);
         padding: 20px 40px;
         border-radius: 20px;
 
         .image-wrapper {
-            background-color: lightyellow;
+            background-color: var(--light-yellow-buttons);
         }
 
         .user-info {
@@ -26,15 +26,15 @@
 
             h3 {
                 font-size: 28px;
-                color: #ffb700;
+                color: var(--orange-color);
                 margin-bottom: 10px;
-                background-color: teal;
+                background-color: var(--teal-color);
                 padding: 10px;
                 border-radius: 10px;
             }
 
             p {
-                color: teal;
+                color: var(--teal-color);
 
                 span {
                     font-weight: bold;
@@ -45,11 +45,11 @@
 }
 
 .not-found-message {
-    color: firebrick;
+    color: var(--error-text-color);
     margin-top: 30vh;
 
     span {
-        background-color: firebrick;
+        background-color: var(--error-text-color);
         color: white;
         padding: 3px 5px;
     }

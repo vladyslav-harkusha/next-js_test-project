@@ -1,6 +1,6 @@
 .user-item {
-    background-color: teal;
-    color: #ffb700;
+    background-color: var(--teal-color);
+    color: var(--orange-color);
     margin: 3px;
     padding: 4px 20px;
     letter-spacing: 2px;
@@ -9,14 +9,14 @@
     transition: 0.3s;
 
     &:hover {
-        background-color: #ffb700;
-        color: teal;
+        background-color: var(--orange-color);
+        color: var(--teal-color);
     }
 
     .user-name {
         display: inline-block;
     }
     span {
-        color: lightblue;
+        color: var(--light-blue-text-color);
     }
 }

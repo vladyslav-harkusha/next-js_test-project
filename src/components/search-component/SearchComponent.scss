@@ -5,13 +5,13 @@
     gap: 20px;
 
     .search-label {
-        color: #5C5EDC;
+        color: var(--violet-color);
         font-weight: bold;
 
         span {
             font-weight: normal;
             font-style: italic;
-            color: teal;
+            color: var(--teal-color);
             font-size: 14px;
         }
     }
@@ -20,13 +20,13 @@
         padding: 6px 10px;
         width: 400px;
         outline: none;
-        border: 2px solid teal;
+        border: 2px solid var(--teal-color);
         border-radius: 8px;
         font-size: 18px;
-        color: #005252;
+        color: var(--dark-teal-color);
 
         &:focus {
-            border-color: #ffb700;
+            border-color: var(--orange-color);
         }
     }
 }
