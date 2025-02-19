@@ -1,3 +1,26 @@
+:root {
+    --teal-color: teal;
+    --orange-color: #ffb700;
+    --wheat-color: wheat;
+    --hover-color-yellow: #ffd267;
+    --violet-color: #5C5EDC;
+    --gray-text-color: gray;
+    --light-blue-text-color: lightblue;
+    --app-wrapper: #e1eef3;
+    --dark-green-text: #024b00;
+    --light-green-text: #009d00;
+    --body-color: #c2c2c2;
+    --error-text-color: firebrick;
+}
+
+.dark {
+    --body-color: #505050;
+}
+
+body {
+    background-color: var(--body-color);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,31 +32,27 @@ ul, li {
     list-style-type: none;
 }
 
-body {
-    background-color: grey;
-}
-
 .app-wrapper {
     max-width: 1440px;
     margin: 0 auto;
     height: 100vh;
-    background-color: #e1eef3;
+    background-color: var(--app-wrapper);
 }
 
 .not-found-container {
     text-align: center;
     margin-top: 40vh;
-    color: firebrick;
+    color: var(--error-text-color);
 
     .link-to-homepage {
         display: block;
         font-size: 18px;
         margin-top: 16px;
-        color: #024b00;
+        color: var(--dark-green-text);
         transition: 0.4s;
 
         &:hover {
-            color: #009d00;
+            color: var(--light-green-text);
         }
     }
 }
