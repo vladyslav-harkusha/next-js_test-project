@@ -5,9 +5,7 @@ import {redirect} from "next/navigation";
 
 export default async function RecipePage() {
     const isAuthorized = await hasCookie('auth-user', { cookies });
-    if (!isAuthorized) {
-        redirect('/auth')
-    }
+    if (!isAuthorized) redirect('/auth');
 
     return (
         <div className='recipe-details-page'>

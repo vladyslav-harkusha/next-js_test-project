@@ -16,9 +16,7 @@ type Props = {
 
 export default async function UsersPage({ searchParams }: Props) {
     const isAuthorized = await hasCookie('auth-user', { cookies });
-    if (!isAuthorized) {
-        redirect('/auth')
-    }
+    if (!isAuthorized) redirect('/auth');
 
     return (
         <div className='users-page'>

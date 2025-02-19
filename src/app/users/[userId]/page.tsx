@@ -8,14 +8,12 @@ import {Suspense} from "react";
 import Loader from "@/components/UI/loader/Loader";
 
 type Props = {
-    params: Promise<Params>
+    params: Promise<Params>;
 }
 
 export default async function UserPage({ params }: Props) {
     const isAuthorized = await hasCookie('auth-user', { cookies });
-    if (!isAuthorized) {
-        redirect('/auth')
-    }
+    if (!isAuthorized) redirect('/auth');
 
     const { userId } = await params;
 

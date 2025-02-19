@@ -5,9 +5,7 @@ import {redirect} from "next/navigation";
 
 export default async function RecipesPage() {
     const isAuthorized = await hasCookie('auth-user', { cookies });
-    if (!isAuthorized) {
-        redirect('/auth')
-    }
+    if (!isAuthorized) redirect('/auth');
 
     // const totalRecipesCount = 50;
 
