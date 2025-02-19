@@ -8,12 +8,12 @@
     .home-page-title {
         text-align: center;
         padding: 12px 0;
-        color: #5C5EDC;
+        color: var(--violet-color);
         font-size: 28px;
         text-shadow: var(--orange-color) 2px 2px;
     }
     .home-page-text {
-        color: teal;
+        color: var(--teal-color);
         font-size: 24px;
         margin-bottom: 30px;
 
@@ -32,11 +32,11 @@
     .need-to-login {
         display: flex;
         gap: 10px;
-        color: firebrick;
+        color: var(--error-text-color);
         font-size: 18px;
 
         .link {
-            color: teal;
+            color: var(--teal-color);
             font-weight: bold;
             font-style: italic;
         }
