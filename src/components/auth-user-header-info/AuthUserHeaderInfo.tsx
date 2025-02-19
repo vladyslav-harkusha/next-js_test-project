@@ -1,11 +1,10 @@
 'use client'
+
 import './AuthUserHeaderInfo.scss';
 import {redirect} from "next/navigation";
 import {IAuthResponseWithTokens} from "@/models/IAuthResponseWithTokens";
 
-type Props = {
-    authUser: IAuthResponseWithTokens;
-}
+type Props = { authUser: IAuthResponseWithTokens }
 
 export default function AuthUserHeaderInfo({ authUser }: Props) {
 

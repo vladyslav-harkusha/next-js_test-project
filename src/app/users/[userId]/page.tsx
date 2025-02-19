@@ -7,9 +7,7 @@ import {Params} from "next/dist/server/request/params";
 import {Suspense} from "react";
 import Loader from "@/components/UI/loader/Loader";
 
-type Props = {
-    params: Promise<Params>;
-}
+type Props = { params: Promise<Params> }
 
 export default async function UserPage({ params }: Props) {
     const isAuthorized = await hasCookie('auth-user', { cookies });

@@ -1,20 +1,14 @@
 'use client';
 
-import {FC} from "react";
 import './SearchComponent.scss';
 import {useForm} from "react-hook-form";
 import MainButton from "@/components/UI/main-button/MainButton";
 import {redirect, useRouter, useSearchParams} from "next/navigation";
 
-type SearchFormProps = {
-    searchField: string;
-}
+type SearchFormProps = { searchField: string }
+type SearchComponentProps = { urlEndpoint: string }
 
-type SearchComponentProps = {
-    urlEndpoint: string;
-}
-
-export const SearchComponent: FC<SearchComponentProps> = ({ urlEndpoint }) => {
+export default function SearchComponent({ urlEndpoint }: SearchComponentProps) {
     const { handleSubmit, register, getValues, reset } = useForm<SearchFormProps>();
     const searchParams = useSearchParams();
     const router = useRouter();

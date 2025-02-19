@@ -4,9 +4,7 @@ import './UserItem.scss';
 import {IUser} from "@/models/IUser";
 import {redirect} from "next/navigation";
 
-type Props = {
-    user: IUser;
-}
+type Props = { user: IUser }
 
 export default function UserItem({ user }: Props) {
     const { id, firstName, lastName, email } = user;

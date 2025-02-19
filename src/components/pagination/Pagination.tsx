@@ -5,9 +5,7 @@ import {useSearchParams, useRouter} from "next/navigation";
 import './Pagination.scss';
 import MainButton from "@/components/UI/main-button/MainButton";
 
-type Props = {
-    totalItems: number;
-}
+type Props = { totalItems: number }
 
 export default function Pagination({ totalItems }: Props) {
     const searchParams = useSearchParams();
@@ -28,7 +26,7 @@ export default function Pagination({ totalItems }: Props) {
     };
 
     const handleNextPage = () => {
-        const nextPage = totalItems > +currPage * +usersPerPage ? (+currPage + 1) : +currPage;
+        const nextPage = (totalItems > +currPage * +usersPerPage) ? (+currPage + 1) : +currPage;
 
         params.set('page', nextPage.toString());
         params.set('limit', usersPerPage);

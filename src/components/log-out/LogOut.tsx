@@ -8,9 +8,7 @@ import {useDeleteCookie} from "cookies-next";
 import {redirect} from "next/navigation";
 import {refreshHomePage} from "@/server-actions/refreshHomePage";
 
-type Props = {
-    authUser: IAuthResponseWithTokens;
-}
+type Props = { authUser: IAuthResponseWithTokens }
 
 export const LogOut: FC<Props> = ({ authUser }) => {
     const deleteCookie = useDeleteCookie();

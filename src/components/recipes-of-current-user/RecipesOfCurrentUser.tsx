@@ -4,9 +4,7 @@ import {getEntitiesByUrlParams} from "@/services/api.get-data.service";
 import {urlEndpoints} from "@/constants/urlEndpoints";
 import {RecipeItem} from "@/components/recipe-item/RecipeItem";
 
-type Props = {
-    userId: string
-}
+type Props = { userId: string }
 
 export default async function RecipesOfCurrentUser({ userId }: Props) {
     const recipesData: IRecipesResponse | undefined  = await getEntitiesByUrlParams({

@@ -5,9 +5,7 @@ import {IUser} from "@/models/IUser";
 
 import RecipesOfCurrentUser from "@/components/recipes-of-current-user/RecipesOfCurrentUser";
 
-type Props = {
-    userId: string;
-}
+type Props = { userId: string }
 
 export default async function UserDetails({ userId }: Props) {
     const currentUser: IUser = await getEntityById(urlEndpoints.authUsers, userId);
