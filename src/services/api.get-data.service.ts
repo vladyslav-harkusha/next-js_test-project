@@ -14,6 +14,7 @@ export const getEntitiesByUrlParams = async <T>(urlParams: urlParamsType) => {
 
         const response = await axiosInstance.get<T>(`${endpoint + search}skip=${skip}&limit=${limit}`);
         return response.data as T;
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     } catch (error: any) {
         console.log(`Get entities data error: ${error.status}, ${error.message}`);
     }
@@ -23,6 +24,7 @@ export const getEntityById = async <T>(endpoint: string, id: string) => {
     try {
         const response = await axiosInstance.get<T>(`${endpoint}/${id}`);
         return response.data as T;
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     } catch (error: any) {
         console.log(`Get entity byId data error: ${error.status}, ${error.message}`);
     }

@@ -4,6 +4,7 @@ import {setCookie} from "cookies-next";
 import {cookies} from "next/headers";
 import {getAuthUserData} from "@/services/api.auth.service";
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export const authFormAction = async (prevState: any, formData: FormData) => {
     try {
         const authData = {
