@@ -18,7 +18,7 @@ export async function setNewAuthCookies(accessToken: string, refreshToken: strin
 
         return { success: true, message: 'Cookies are update' };
     } catch (error) {
-        console.error('Ошибка установки cookies:', error);
+        console.error(error);
         return { success: false, message: 'Updating cookies error' };
     }
 }

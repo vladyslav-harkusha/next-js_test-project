@@ -11,7 +11,7 @@ export const getEntitiesByUrlParams = async <T>(urlParams: urlParamsType) => {
     try {
         const { endpoint, search, page, limit } = urlParams;
         const skip = (page - 1) * limit;
-        console.log(`${endpoint + search}skip=${skip}&limit=${limit}`)
+
         const response = await axiosInstance.get<T>(`${endpoint + search}skip=${skip}&limit=${limit}`);
         return response.data as T;
     } catch (error: any) {
