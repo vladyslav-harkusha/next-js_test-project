@@ -56,11 +56,11 @@ axiosInstance.interceptors.response.use(
                 const tokensPair = await getNewTokens();
                 console.log(tokensPair);
 
-                await fetch('http://localhost:3000/auth/api', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(tokensPair)
-                });
+                // await fetch('http://localhost:3000/auth/api', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(tokensPair)
+                // });
 
                 originalRequest.headers["Authorization"] = `Bearer ${tokensPair.accessToken}`;
 
