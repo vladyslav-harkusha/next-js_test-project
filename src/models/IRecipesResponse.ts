@@ -1,4 +1,5 @@
-import {IRecipe} from "./IRecipe.ts";
+import {IRecipe} from "@/models/IRecipe";
+
 
 export interface IRecipesResponse {
     recipes: IRecipe[];

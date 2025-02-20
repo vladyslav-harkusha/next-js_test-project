@@ -1,4 +1,4 @@
-import {IUser} from "./IUser.ts";
+import {IUser} from "@/models/IUser";
 
 export interface IUsersResponse {
     users: IUser[];
