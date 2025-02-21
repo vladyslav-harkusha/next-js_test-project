@@ -9,7 +9,7 @@ type SearchFormProps = { searchField: string }
 type SearchComponentProps = { urlEndpoint: string }
 
 export default function SearchComponent({ urlEndpoint }: SearchComponentProps) {
-    const { handleSubmit, register, getValues, reset } = useForm<SearchFormProps>();
+    const { handleSubmit, register, getValues } = useForm<SearchFormProps>();
     const searchParams = useSearchParams();
     const router = useRouter();
     const params = new URLSearchParams(searchParams.toString());
@@ -24,8 +24,6 @@ export default function SearchComponent({ urlEndpoint }: SearchComponentProps) {
             params.set('page', '1');
             router.push(`?${params.toString()}`);
         }
-
-        reset();
     };
 
     return (
