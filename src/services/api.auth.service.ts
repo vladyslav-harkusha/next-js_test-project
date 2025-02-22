@@ -2,7 +2,7 @@ import axios from "axios";
 import {urlEndpoints} from "@/constants/urlEndpoints";
 import {ILoginData} from "@/models/ILoginData";
 import {IAuthResponseWithTokens} from "@/models/IAuthResponseWithTokens";
-import {getCookie, setCookie} from "cookies-next";
+import {getCookie} from "cookies-next";
 import {cookies} from "next/headers";
 import {IRefreshTokensPair} from "@/models/IRefreshTokensPair";
 import {setNewAuthCookies} from "@/server-actions/refreshTokens";
