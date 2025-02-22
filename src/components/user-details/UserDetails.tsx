@@ -17,7 +17,7 @@ export default async function UserDetails({ userId }: Props) {
         <div className='user-details'>
             <div className='info-wrapper'>
                 <div className='image-wrapper'>
-                    <Image src={image} width={300} height={300} alt={firstName} loading={"lazy"} />
+                    <Image fill sizes="300px, 300px" src={image} alt={firstName} loading={"lazy"} />
                 </div>
                 <div className='user-info'>
                     <h3 className='user-name'>user №{id}: {firstName} {lastName}</h3>

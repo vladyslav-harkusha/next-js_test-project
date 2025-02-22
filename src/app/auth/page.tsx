@@ -1,7 +1,7 @@
-import './AuthPage.scss';
 import {AuthForm} from "@/components/auth-form/AuthForm";
 import {cookies} from "next/headers";
 import {LogOut} from "@/components/log-out/LogOut";
+import './AuthPage.scss';
 
 export default async function AuthPage() {
     const cookieStore = await cookies();

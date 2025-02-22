@@ -17,7 +17,9 @@ export default async function RecipeDetails({ recipeId }: Props) {
         <div className='recipe-details'>
             <h3 className='title'>recipe №{id}: {name}</h3>
             <div className='wrapper'>
-                <Image src={image} width={400} height={400} alt={name} loading={"lazy"}/>
+                <div className='imageR-wrapper'>
+                    <Image fill sizes="400px, 400px" src={image} alt={name} />
+                </div>
                 <div className='instructions'>
                     <ul className='ingredients-list'>
                         <p>ingredients:</p>

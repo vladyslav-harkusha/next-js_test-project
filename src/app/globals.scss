@@ -1,6 +1,5 @@
 :root {
-    --app-wrapper: #e1eef3;
-    --teal-color: teal;
+    --teal-color: rgba(0, 98, 98, 0.69);
     --dark-teal-color: #005252;
     --orange-color: #ffb700;
     --wheat-color: wheat;
@@ -17,10 +16,10 @@
     --light-green-text: #009d00;
     --error-text-color: firebrick;
     --body-color: #c2c2c2;
+    --background-url: url("../../public/bg_lite1.jpg");
 }
 
 .dark {
-    --app-wrapper: #14152d;
     --teal-color: rgba(56, 115, 150, 0.65);
     --dark-teal-color: #003552;
     --orange-color: #cd00d5;
@@ -38,6 +37,7 @@
     --light-green-text: #009d00;
     --error-text-color: firebrick;
     --body-color: #000000;
+    --background-url: url("../../public/bg_dark1.jpg");
 }
 
 body {
@@ -59,7 +59,8 @@ ul, li {
     max-width: 1440px;
     margin: 0 auto;
     height: 100vh;
-    background-color: var(--app-wrapper);
+    background-image: var(--background-url);
+    background-size: cover;
 }
 
 .not-found-container {

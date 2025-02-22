@@ -16,7 +16,7 @@ export default function AuthUserHeaderInfo({ authUser }: Props) {
                 <p className='user-email'>{authUser.email}</p>
             </div>
             <div className='user-photo-wrapper'>
-                <Image src={authUser.image} width={85} height={85} alt="auth-user-photo"/>
+                <Image fill sizes="9vh" src={authUser.image} alt="auth-user-photo"/>
             </div>
         </div>
     );
