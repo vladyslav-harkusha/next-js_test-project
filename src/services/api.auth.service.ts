@@ -8,7 +8,7 @@ import {IRefreshTokensPair} from "@/models/IRefreshTokensPair";
 import {setNewAuthCookies} from "@/server-actions/refreshTokens";
 
 export const axiosInstance = axios.create({
-    baseURL: 'https://dummyjson.com',
+    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
 });
