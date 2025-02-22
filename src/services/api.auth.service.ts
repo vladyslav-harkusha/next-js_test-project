@@ -2,9 +2,10 @@ import axios from "axios";
 import {urlEndpoints} from "@/constants/urlEndpoints";
 import {ILoginData} from "@/models/ILoginData";
 import {IAuthResponseWithTokens} from "@/models/IAuthResponseWithTokens";
-import {getCookie} from "cookies-next";
+import {getCookie, setCookie} from "cookies-next";
 import {cookies} from "next/headers";
 import {IRefreshTokensPair} from "@/models/IRefreshTokensPair";
+import {setNewAuthCookies} from "@/server-actions/refreshTokens";
 
 export const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -38,7 +39,7 @@ export const getNewTokens = async (): Promise<IRefreshTokensPair> => {
 
     const { data: newTokens } = await axiosInstance.post<IRefreshTokensPair>(urlEndpoints.refresh, {
         refreshToken,
-        expiresInMins: 30
+        expiresInMins: 60
     });
 
     return newTokens;
@@ -49,18 +50,13 @@ axiosInstance.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
 
-        if (error.response?.status === 401) {
+        if (error.response?.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
 
             try {
                 const tokensPair = await getNewTokens();
-                console.log(tokensPair);
 
-                // await fetch('http://localhost:3000/auth/api', {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify(tokensPair)
-                // });
+                await setNewAuthCookies(tokensPair.accessToken, tokensPair.refreshToken);
 
                 originalRequest.headers["Authorization"] = `Bearer ${tokensPair.accessToken}`;
 

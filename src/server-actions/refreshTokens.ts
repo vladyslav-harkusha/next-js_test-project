@@ -6,14 +6,18 @@ export async function setNewAuthCookies(accessToken: string, refreshToken: strin
     const cookieStore = await cookies();
 
     try {
-        cookieStore.set({
-            name: 'dummyAccessToken',
-            value: accessToken,
+        cookieStore.set("dummyAccessToken", accessToken, {
+            httpOnly: true,
+            path: "/",
+            sameSite: "lax",
+            maxAge:  60*60
         });
 
-        cookieStore.set({
-            name: 'dummyRefreshToken',
-            value: refreshToken,
+        cookieStore.set("dummyRefreshToken", refreshToken, {
+            httpOnly: true,
+            path: "/",
+            sameSite: "lax",
+            maxAge: 7 * 24 * 60 * 60,
         });
 
         return { success: true, message: 'Cookies are update' };
